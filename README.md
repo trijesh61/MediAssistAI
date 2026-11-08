@@ -24,7 +24,7 @@ Built using **LangGraph, LangChain, PubMed API, ChromaDB, Hugging Face Embedding
 
 | Category | Technologies |
 |---|---|
-| Programming Language | Python |
+| Programming Language | Python 3.12 |
 | LLM | Llama 3.3 70B Versatile (Groq) |
 | LLM Framework | LangChain |
 | Orchestration | LangGraph |
@@ -51,30 +51,26 @@ Built using **LangGraph, LangChain, PubMed API, ChromaDB, Hugging Face Embedding
                   v
           LangGraph Workflow
                   |
-          +-------+-------+
-          |               |
-          v               |
-      PubMed API           |
-          |               |
-          v               |
-    Article Retrieval      |
-          |               |
-          v               |
-    Abstract Extraction   |
-          |               |
-          v               |
-   LangChain Documents    |
-          |               |
-          v               |
-       ChromaDB            |
-          |               |
-          v               |
-    Semantic Retrieval    |
-          |               |
-          +-------+-------+
+                  v
+            PubMed API
                   |
                   v
-             Groq LLM
+          Article Retrieval
+                  |
+                  v
+         Abstract Extraction
+                  |
+                  v
+        LangChain Documents
+                  |
+                  v
+              ChromaDB
+                  |
+                  v
+         Semantic Retrieval
+                  |
+                  v
+              Groq LLM
                   |
                   v
           Generated Answer
@@ -107,7 +103,7 @@ MediAssist/
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/MediAssist.git
+git clone https://github.com/trijesh61/MediAssist.git
 
 cd MediAssist
 ```
@@ -162,22 +158,24 @@ streamlit run app.py
 
 Open the application in your browser:
 
-```text
 http://localhost:8501
-```
 
 ---
 
 ## 🔄 Workflow
 
 ### 1. User Query
+
 The user enters a medical research question through the Streamlit interface.
 
 ### 2. PubMed Retrieval
+
 The PubMed E-utilities API searches for relevant scientific articles using the user's query.
 
 ### 3. Document Processing
+
 Retrieved article abstracts are converted into structured LangChain Document objects with metadata such as:
+
 - PMID
 - Title
 - Journal
@@ -185,15 +183,19 @@ Retrieved article abstracts are converted into structured LangChain Document obj
 - Publication Date
 
 ### 4. Vector Storage
+
 Hugging Face Sentence Transformer embeddings convert documents into numerical vectors, which are stored in ChromaDB.
 
 ### 5. Semantic Retrieval
+
 ChromaDB retrieves the most relevant research documents based on semantic similarity.
 
 ### 6. Answer Generation
+
 The retrieved research context and user question are passed to the Groq-hosted LLM.
 
 ### 7. Response Generation
+
 MediAssist generates an answer and displays the retrieved research references in Streamlit.
 
 ---
@@ -215,14 +217,16 @@ The application uses a two-node LangGraph workflow.
            END
 ```
 
-**Load_documents**
+### Load_documents
+
 - Search PubMed.
 - Fetch article abstracts.
 - Convert articles into LangChain documents.
 - Store documents in ChromaDB.
 - Retrieve relevant documents.
 
-**Generate_answer**
+### Generate_answer
+
 - Receive retrieved research context.
 - Construct the LLM prompt.
 - Generate a research-based answer using Groq.
@@ -231,7 +235,7 @@ The application uses a two-node LangGraph workflow.
 
 ## 📚 Data Source
 
-**PubMed – National Library of Medicine**
+### PubMed – National Library of Medicine
 
 PubMed provides access to biomedical and life sciences literature.
 
@@ -240,8 +244,8 @@ PubMed provides access to biomedical and life sciences literature.
 
 MediAssist uses the following E-utilities endpoints:
 
-- ESearch: Search PubMed articles.
-- EFetch: Retrieve article metadata and abstracts.
+- **ESearch:** Search PubMed articles.
+- **EFetch:** Retrieve article metadata and abstracts.
 
 ---
 
@@ -276,8 +280,8 @@ Always consult a qualified healthcare professional for medical decisions.
 
 B.Tech – Artificial Intelligence & Data Science
 
-- GitHub: https://github.com/trijesh61
-- LinkedIn: Add your LinkedIn profile URL
+- **GitHub:** [github.com/trijesh61](https://github.com/trijesh61)
+- **LinkedIn:** [linkedin.com/in/trijesh-kondapuram](https://www.linkedin.com/in/trijesh-kondapuram/)
 
 ---
 
